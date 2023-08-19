@@ -5,7 +5,7 @@
  * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
  * @date 08/18/2023
  * @description Render the UI for the individual plant cards and add their functionality.
- * Functionality has been done inside of Plant Card, this file most likely can be deleted, wait to consult others
+ * Functionality has been done inside of Plant Card, this file most likely can be deleted, wait to consult
  * ************************************
  */
 
