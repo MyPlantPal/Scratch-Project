@@ -26,12 +26,28 @@ const PlantCard = (props) => {
 			</div>
 
 			<div className='infoContainer'>
+
+				{/* for when data comes in from DB */}
+
+				{/* <div className='plantDetail'>Species: {type}</div>
+				<div className='plantDetail'>Last Watered: {lastWatered}</div>
+				<div className='plantDetail'>Watering Frequency: {frequency}</div>
+				<div className='plantDetail'>Soil Type: {soil}</div>
+				<div className='plantDetail'>Last Potted: {lastPotted}</div>
+				<div className='plantDetail'>Sunlight: {sunlight}</div>
 				<div className='plantDetail'>DOB: {DOB}</div>
+				<div className='plantDetail'>Date Added: {dateAdded}</div> */}
+
+
+				{/* for testing purposes */}
 				<div className='plantDetail'>Species: {}</div>
 				<div className='plantDetail'>Last Watered: {}</div>
 				<div className='plantDetail'>Watering Frequency: {}</div>
 				<div className='plantDetail'>Soil Type: {}</div>
-				<div className='plantDetail'>Soil Type: {}</div>
+				<div className='plantDetail'>Last Potted: {}</div>
+				<div className='plantDetail'>Sunlight: {}</div>
+				<div className='plantDetail'>DOB: {DOB}</div>
+				<div className='plantDetail'>Date Added: {}</div>
 			</div>
 
 		</div>

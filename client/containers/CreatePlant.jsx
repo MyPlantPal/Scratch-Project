@@ -1,20 +1,13 @@
-// ====== DISPATCHERS ======
-/**
- * Navigate
- * AddCard
- * DeleteCard
- * UpdateCard
- * PopUp
- */
+//Look at the database data
+//Deconstruct it to get all the parameters
 
 
-// ====== COMPONENTS ======
-/**
- * Plant Display
- * Plant Card
- * Info Card
- * Nav Bar
- */
+//Push this into plant list array
+//Div plant name
+//h1 species 
+
+
+// Extract the data and turn into React components for UI render
 
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -22,7 +15,9 @@ import PlantDisplay from '../components/PlantDisplay.jsx'
 import Plant from '../components/PlantCard.jsx'
 import {useNavigate} from 'react-router-dom';
 
-const MainPage = () => {
+
+const CreatePlant = () => {
+
 
   const totalCards = useSelector(store => store.plants.totalCards);
   const plantList = useSelector(store => store.plants.plantList);
@@ -52,30 +47,18 @@ const MainPage = () => {
           
         </div>
         
-        <div className='plantContainer'>
-
-          <div className='totalPlantDataBox'>
-            <div class='totalPlantData'>
-							{/* Total Plants: {totalCards} */}
-							Total Plants: 6421654
-						</div>
-						<div class='totalPlantData'>
-							Green Score: {greenScore}
-						</div>
-						<div class='totalPlantData'>
-							Filter Plants
-						</div>
-          </div>
-          
-          <div className='plantDisplay'>
-            {/* <PlantDisplay
-              // include plantList
-            /> */}
-						<PlantDisplay />
-          </div>
+        <div className = 'plantContainer'>
+					Container
         </div>
+				<div className = 'createBox'>
+					
+				</div>
       </div>
     </div>
-  )}
+  )
+}
 
-export default MainPage;
+
+export default CreatePlant;
+
+

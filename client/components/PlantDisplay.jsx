@@ -5,7 +5,7 @@ import PlantCard from './PlantCard.jsx'
 
 const mockPlantDB = [{ 
   photo: 'url', 
-  plantName: 'string',
+  plantName: 'PlantName',
   DOB: '03/16/2000',
 }] 
 
@@ -24,14 +24,30 @@ const PlantDisplay = props => {
       <PlantCard
       photo={mockPlantDB[i].photo}
       plantName={mockPlantDB[i].plantName}
-      DOB={'TEST STRING'}
-      />
+      DOB={mockPlantDB[i].DOB}
+      />,
+      <PlantCard
+      photo={mockPlantDB[i].photo}
+      plantName={mockPlantDB[i].plantName}
+      DOB={mockPlantDB[i].DOB}
+      />,
+      <PlantCard
+      photo={mockPlantDB[i].photo}
+      plantName={mockPlantDB[i].plantName}
+      DOB={mockPlantDB[i].DOB}
+      />,
+      <PlantCard
+      photo={mockPlantDB[i].photo}
+      plantName={mockPlantDB[i].plantName}
+      DOB={mockPlantDB[i].DOB}
+      />,
     );
   }
   return(
-    <div className="plantBox">
-      <h4>Plant Collection</h4>
-      {plants}
+    <div>
+      <div className='plantDisplay'>
+        {plants}
+      </div>
     </div>
   );  
 }
