@@ -16,24 +16,14 @@
  */
 
 import React from 'react';
-import { useSelector } from 'react-redux';
-import PlantDisplay from '../components/PlantDisplay.jsx';
-import Plant from '../components/PlantCard.jsx';
-import { useNavigate } from 'react-router-dom';
 import NavSidePanel from '../components/NavSidePanel.jsx';
-import TotalPlantData from '../components/TotalPlantData.jsx';
 import PlantContainer from './PlantContainer.jsx';
+import NavBar from '../components/Nav-Bar.jsx';
 
 const MainPage = () => {
-  const totalCards = useSelector((store) => store.plants.totalCards);
-  const plantList = useSelector((store) => store.plants.plantList);
-  const greenScore = 1000;
-
   return (
     <div>
-      <div className="nav-bar">
-        <h1>LeafLaughLove</h1>
-      </div>
+      <NavBar />
       <div className="homePageContainer">
         <NavSidePanel />
         <PlantContainer />
