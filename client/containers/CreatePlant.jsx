@@ -49,8 +49,19 @@ const CreatePlant = () => {
   }
 
   const [name, setName] = useState('');
+  const [species, setSpecies] = useState('');
   const [soilType, setSoilType] = useState('');
   const [waterFrequency, setWaterFrequency] = useState('');
+  const [fileUrl, setFileUrl] = useState(null);
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+
+    if (selectedFile) {
+      const url = URL.createObjectURL(selectedFile);
+      setFileUrl(url);
+    }
+  };
 
   const handleSubmission = (e) => {
     e.preventDefault(); 
@@ -80,16 +91,23 @@ const CreatePlant = () => {
           <div className = 'createPlantCard'>
             <header className = 'createCardHeader'>
               <span className = 'createAvatar'>
-                
+              {fileUrl && <img className='avatarImage' src={fileUrl} alt ='preview of avatar'file/>}
               </span>
               <span className = 'nameHeader'>
-                name
+                {name}
               </span>
             </header>
             <section className = 'inputField'>
               <div className='photoInput'>
                 <span>Input Image: </span>
-                <button className='photoButton'>Image</button>
+                <form action="/action_page.php">
+                <input
+                  type="file"
+                  id="chooseFileButton"
+                  name="filename"
+                  onChange={handleFileChange}
+                />
+                </form>
               </div>
               <div className='nameInput'>
                 <span>Name: </span>
@@ -97,6 +115,14 @@ const CreatePlant = () => {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className='speciesInput'>
+                <span>Species: </span>
+                <input
+                  type="text"
+                  value={species}
+                  onChange={(e) => setSpecies(e.target.value)}
                 />
               </div>
               <div className='soilTypeInput'>

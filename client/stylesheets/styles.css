@@ -175,18 +175,31 @@ input {
 }
 
 .createAvatar {
+  display: flex;
+  justify-content: center;
   border: 1px solid black;
   border-radius: 2em;
   background-color: lightgray;
   height: 4rem;
   width: 4rem;
+  overflow: hidden;
+}
+
+.avatarImage {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
 }
 
 .nameHeader {
   font-size: larger;
-  font-weight: 500;
-  margin-left: 10rem;
+  font-weight: bolder;
+  margin-left: 5rem;
   align-self: flex-end;
 }
 
-.inputField {}
+#chooseFileButton {
+  margin: 0px;
+  margin-top: 1em; 
+  padding: 0px;
+}
