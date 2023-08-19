@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import PlantDisplay from "../components/PlantDisplay.jsx";
-import Plant from "../components/PlantCard.jsx";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [signedIn, setSignedIn] = useState(false);
+  const [signedUp, setSignedUp] = useState(false);
 
   // useEffect for checking if logged in, dependent on signedIn state
 
@@ -16,8 +13,10 @@ const SignUp = () => {
   };
 
   const Submit = () => {
-    // login functionality
-    // redirect to home
+    // signup functionality (POST)
+
+    // redirect to home after signed up (useNavigate)
+
   };
 
   return (

@@ -1,9 +1,20 @@
+/**
+ * ************************************
+ *
+ * @module  actions.js
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @date 08/18/2023
+ * @description Create the indidual actions to call the intended functions
+ *
+ * ************************************
+ */
+
 import * as types from '../constants/actionTypes.js';
 
 // ACTIONS HANDLE PAYLOAD FOR REDUCERS
 // OUR ACTIONS ARE JUST LISTENING IN ORDER TO DISPATCH
 
-// ACTIONS PSEUDO CODE 
+// ACTIONS PSEUDO CODE
 
 /*
 MVP: 
@@ -20,7 +31,6 @@ Render profile image --> when you upload a plant image (payload: img url?), fire
 
 
 */
-
 
 // export const addCardActionCreator = marketId => ({
 //   type: types.ADD_CARD,
