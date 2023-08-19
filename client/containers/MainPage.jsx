@@ -21,8 +21,9 @@ import PlantDisplay from '../components/PlantDisplay.jsx';
 import Plant from '../components/PlantCard.jsx';
 import { useNavigate } from 'react-router-dom';
 import NavSidePanel from '../components/NavSidePanel.jsx';
+import TotalPlantData from '../components/TotalPlantData.jsx';
+
 const MainPage = () => {
-  
   const totalCards = useSelector((store) => store.plants.totalCards);
   const plantList = useSelector((store) => store.plants.plantList);
   const greenScore = 1000;
@@ -35,24 +36,8 @@ const MainPage = () => {
       <div className="homePageContainer">
 
         <NavSidePanel/>
-
-        <div className="plantContainer">
-          <div className="totalPlantDataBox">
-            <div class="totalPlantData">
-              {/* Total Plants: {totalCards} */}
-              Total Plants: 6421654
-            </div>
-            <div class="totalPlantData">Green Score: {greenScore}</div>
-            <div class="totalPlantData">Filter Plants</div>
-          </div>
-
-          <div className="plantDisplay">
-            {/* <PlantDisplay
-              // include plantList
-            /> */}
-            <PlantDisplay />
-          </div>
-        </div>
+        <TotalPlantData/>
+        
       </div>
     </div>
   );

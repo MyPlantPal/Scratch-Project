@@ -9,9 +9,10 @@ const NavSidePanel = () => {
     let path = '/create';
     navigate(path);
   };
-  
+
   return (
     <div className="navSidePanel">
+
       <button className="navButton">My Plants</button>
       <hr />
       <button className="navButton" onClick={toCreate}>
@@ -19,6 +20,7 @@ const NavSidePanel = () => {
       </button>
       <hr />
       <button className="navButton">Discover</button>
+      
     </div>
   );
 };
