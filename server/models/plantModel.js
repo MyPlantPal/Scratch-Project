@@ -1,13 +1,24 @@
+/**
+ * ************************************
+ *
+ * @module plantModel
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @date 08/18/2023
+ * @description The Schema for the plants themselves and what data to be added to them
+ *
+ * ************************************
+ */
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-/** 
+/**
  * @name plantSchema
  * @description Schema for plants
  */
 const plantSchema = new Schema({
   name: { type: String, required: true, unique: true },
-  type: { type: String, /* required: true */},
+  type: { type: String /* required: true */ },
   lastWatered: { type: Date },
   frequency: { type: Number },
   soil: { type: String },
@@ -15,9 +26,9 @@ const plantSchema = new Schema({
   sunlight: { type: String },
   // photo: { type: Image },
   dateAdded: { type: Date },
-  birthday: { type: Date }
-})
+  birthday: { type: Date },
+});
 
-const Plant = mongoose.model('Plant', plantSchema); 
+const Plant = mongoose.model('Plant', plantSchema);
 
 module.exports = Plant;
