@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
  * @description Schema for plants
  */
 const plantSchema = new Schema({
-  name: { type: String },
-  type: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
+  type: { type: String, /* required: true */},
   lastWatered: { type: Date },
   frequency: { type: Number },
   soil: { type: String },
