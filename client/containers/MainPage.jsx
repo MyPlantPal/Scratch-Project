@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module MainPage
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @date 08/18/2023
+ * @description Display the NavBar, NavSidePanel, and Plant Container
+ *
+ * ************************************
+ */
+
 // ====== DISPATCHERS ======
 /**
  * Navigate
@@ -5,14 +16,6 @@
  * DeleteCard
  * UpdateCard
  * PopUp
- */
-
-// ====== COMPONENTS ======
-/**
- * Plant Display
- * Plant Card
- * Info Card
- * Nav Bar
  */
 
 import React from 'react';

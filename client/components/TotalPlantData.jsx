@@ -1,6 +1,16 @@
+/**
+ * ************************************
+ *
+ * @module TotalPlantData
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @date 08/18/2023
+ * @description Display the header of all the relevant plant scores and quantities
+ *
+ * ************************************
+ */
+
 import React from 'react';
 import { useSelector } from 'react-redux';
-import PlantDisplay from '../components/PlantDisplay.jsx';
 
 const TotalPlantData = () => {
   const totalCards = useSelector((store) => store.plants.totalCards);
