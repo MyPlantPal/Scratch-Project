@@ -13,5 +13,25 @@ Initial State
 Total Cards - 0
 Collections Array = []
 
-
  */
+
+const initialState = {
+    totalPlants: 0,
+    plantList: [],
+};
+
+const plantsReducer = (state = initialState, action) => {
+
+    switch(action.type) {
+      case types.ADD_PLANT: {
+          //We create the mongo object 
+
+          //Then take that object into the plant creator
+      }
+      default: {
+        return state; 
+      }
+    }
+}
+
+export default plantsReducer; 

@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+}
+
+.nav-bar {
+  display: flex;
+  height: 4em;
+  border: 1px solid black;
+}
+
+.homePageContainer {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+}
+
+.navSidePanel {
+  border: 1px solid black;
+  flex-grow: 1;
+  /* max-width: 20em; */
+}
+
+.plantContainer {
+
+  flex-wrap: wrap;
+  flex-grow: 4;
+}
+
+.totalPlantData {
+  border: 1px solid black;
+  min-height: 3em;
+}
+
+.plantDisplay {
+  border: 1px solid black;
+}
+
+.plantBox {
+  height: auto;
+  width: 15em;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid black;
+}
+
+.photoAndInfoTag {
+  display: flex;
+}
+
+.plantPhoto {
+  border: 1px solid black;
+  border-radius: 1em;
+  background-color: lightgray;
+  margin-bottom: .5em;
+  height: 2em;
+  width: 2em;
+}
+
+.plantName {
+  border: 1px solid black;
+  margin-left: 1em;
+  padding: .5em;
+  font-size: 1.2em;
+}
+
+.plantDetail {
+  margin: .5em;
+}

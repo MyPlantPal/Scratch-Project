@@ -1,0 +1,78 @@
+//Look at the database data
+//Deconstruct it to get all the parameters
+
+
+//Push this into plant list array
+//Div plant name
+//h1 species 
+
+
+// Extract the data and turn into React components for UI render
+
+
+function CreateTool () {
+
+    // states of all components of form
+    const [tool, setTool] = useState();
+    const [quantity, setQuantity] = useState();
+    const [location, setLocation] = useState();
+    const [serialNo, setSerialNo] = useState();
+    const [notes, setNotes] = useState();
+    const [DOP, setDOP] = useState();
+
+    // used to navigate to main page after pressing submit
+    let navigate = useNavigate();
+    const toHome = () => {
+        let path = '/';
+        navigate(path);
+    }
+
+    // post data upon form submission
+    const Submit = (e) => {
+        console.log('submit called')
+        e.preventDefault();
+        axios.post('http://localhost:3000/create', { tool, quantity, location, serialNo, notes, DOP })
+        .then(console.log('new tool created'))
+        .then(toHome())
+        .catch(err => console.log(err));
+    }
+
+    // how the page looks
+    return (
+        <div className=''>
+            <div className='formBox'>
+                <form onSubmit={Submit}>
+                    <h2>Add New Tool</h2>
+                    <button className='deleteButton' onClick={toHome}>&#60;&#60; Back to Home</button>
+                    <div className=''>
+                        <label htmlFor="">Tool</label>
+                        <input type="text" placeholder='Tool' className='' onChange={(e) => setTool(e.target.value)}/>
+                    </div>
+                    <div className=''>
+                        <label htmlFor="">Quantity</label>
+                        <input type="text" placeholder='Initial Quantity' className='' onChange={(e) => setQuantity(e.target.value)}/>
+                    </div>
+                    <div className=''>
+                        <label htmlFor="">Location</label>
+                        <input type="text" placeholder='C4S3P6 (Cabinet 4, Shelf 3, Position 6)' className='' onChange={(e) => setLocation(e.target.value)}/>
+                    </div>
+                    <div className=''>
+                        <label htmlFor="">SerialNo</label>
+                        <input type="text" placeholder='S/N' className='' onChange={(e) => setSerialNo(e.target.value)}/>
+                    </div>
+                    <div className=''>
+                        <label htmlFor="">Notes</label>
+                        <input type="text" placeholder='Any notes you may find relevant' className='' onChange={(e) => setNotes(e.target.value)}/>
+                    </div>
+                    <div className=''>
+                        <label htmlFor="">DOP (date of purchase)</label>
+                        <input type="text" placeholder='MM-DD-YYYY' className='' onChange={(e) => setDOP(e.target.value)}/>
+                    </div>
+                    <button className='submitButton'>Submit</button>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+// export default CreateTool;

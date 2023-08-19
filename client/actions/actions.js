@@ -1,5 +1,4 @@
 import * as types from '../constants/actionTypes.js';
-import { useDispatch } from 'react-redux';
 
 // ACTIONS HANDLE PAYLOAD FOR REDUCERS
 // OUR ACTIONS ARE JUST LISTENING IN ORDER TO DISPATCH
@@ -23,20 +22,20 @@ Render profile image --> when you upload a plant image (payload: img url?), fire
 */
 
 
-export const addCardActionCreator = marketId => ({
-  type: types.ADD_CARD,
-  payload: marketId,
-});
+// export const addCardActionCreator = marketId => ({
+//   type: types.ADD_CARD,
+//   payload: marketId,
+// });
 
-export const deleteCardActionCreator = marketId => ({
-  type: types.DELETE_CARD,
-  payload: marketId,
-});
-export const setNewLocationActionCreator = (location) => ({
-  type: types.SET_NEW_LOCATION,
-  payload: location,
-});
+// export const deleteCardActionCreator = marketId => ({
+//   type: types.DELETE_CARD,
+//   payload: marketId,
+// });
+// export const setNewLocationActionCreator = (location) => ({
+//   type: types.SET_NEW_LOCATION,
+//   payload: location,
+// });
 
-export const addMarketActionCreator = () => ({
-  type: types.CREATE_MARKET
-});
+// export const addMarketActionCreator = () => ({
+//   type: types.CREATE_MARKET
+// });
