@@ -5,6 +5,9 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose'); 
 const userRouter = require('./Routers/userRouter')
 const plantRouter = require('./Routers/plantRouter')
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 /**
  * @name
@@ -22,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
  * @description Link to Mongoose database; 
  * Currently unsure how to handle accessing two different db's (Plant/Person) 
  */
-const MONGO_URI = 'mongodb+srv://codesmith:ZkzwAyxC1feUybTC@plantdb.5rwujf8.mongodb.net/'
+const MONGO_URI = `mongodb+srv://codesmith:ZkzwAyxC1feUybTC@plantdb.5rwujf8.mongodb.net/`
 // mongoose.connect(MONGO_URI); // original method
 mongoose.connect(MONGO_URI, {
   // options for the connect method to parse the URI
