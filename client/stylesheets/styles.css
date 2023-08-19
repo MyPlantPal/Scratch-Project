@@ -147,3 +147,46 @@ input {
 .plantDetail {
   margin: .5em;
 }
+
+
+.createContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createPlantCard {
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 2rem;
+  width: 30rem;
+  height: 30rem;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2em;
+}
+
+.createCardHeader {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}
+
+.createAvatar {
+  border: 1px solid black;
+  border-radius: 2em;
+  background-color: lightgray;
+  height: 4rem;
+  width: 4rem;
+}
+
+.nameHeader {
+  font-size: larger;
+  font-weight: 500;
+  margin-left: 10rem;
+  align-self: flex-end;
+}
+
+.inputField {}
