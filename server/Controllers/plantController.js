@@ -1,20 +1,62 @@
 const Plant = require('../models/plantModel'); 
+const User = require('../models/userModel');
+const { request } = require('../server');
 
 const plantController = {};
 
 /**
- * @name plantController.addPlant
+ * @name plantController.getPlant 
+ * @description Grabs plant information from the database
+ */
+plantController.getPlants = async (req, res, next) => {
+  try {
+    const data = await Plant.find({})
+    console.log(data);
+    res.locals.data = data;
+    return next();
+  } catch (err) {
+    return next ({
+      log: `userController.getPlants ERROR : ${err}`,
+      message : {
+        err : 'userController.getPlants ERROR wrong input'
+      }    
+    })
+  }
+}
+
+/**
+ * @name plantController.createPlant
  * @description
  */
-plantController.addPlant = () => {
+plantController.createPlant = async (req, res, next) => {
 
+  try {
+    // const { name, type, lastWatered, frequency, soil, lastPotted, sunlight, dateAdded, birthday } = req.body; 
+    const { body } = req
+    const data = await Plant.create(body);
+    console.log(data);
+    res.locals.data = data;
+    const plantId = data.id;
+    const user = await User.findById(data.user);
+    user.plants.push(plantId);
+    await user.save();
+    return next();
+  }
+  catch(err) {
+    return next({
+      log: `userController.createPlant ERROR : ${err}`,
+      message : {
+        err : 'userController.createPlant ERROR wrong input'
+      }    
+    })
+}
 }
 
 /**
  * @name plantController.deletePlant
  * @description
  */
-plantController.deletePlant = () => {
+plantController.deletePlant = (req, res, next) => {
 
 }
 
@@ -24,6 +66,8 @@ plantController.deletePlant = () => {
  * Give a form to the user with information filled out with current info
  * and have the user replace the information
  */
-plantController.updatePlant = () => {
+plantController.updatePlant = (req, res, next) => {
 
 }
+
+module.exports = plantController;

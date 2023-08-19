@@ -7,12 +7,6 @@ const userController = require('../Controllers/userController')
  * @description Takes login data and sends to userController.login express middleware to verify authenticity
  * Returns authenticty. 
  */
-
-// userRouter.get('/login', (req, res) => {
-//   console.log(req.query);
-//   res.status(200).send('Yay')
-// })
-
 userRouter.get('/login', userController.login, (req, res) => {
   if (res.locals.success) {
     return res.status(200).send('Successful Login.');
@@ -22,6 +16,10 @@ userRouter.get('/login', userController.login, (req, res) => {
   }
 })
 
+/**
+ * @name userRouter.post
+ * @description Sends a post request to create a user and add to MongoDB
+ */
 userRouter.post('/createUser', userController.createUser, (req, res) => {
   return res.status(200).send('User created. Please log in.');
 })

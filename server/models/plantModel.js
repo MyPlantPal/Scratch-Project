@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./userModel')
 
 /** 
  * @name plantSchema
@@ -15,7 +16,12 @@ const plantSchema = new Schema({
   sunlight: { type: String },
   // photo: { type: Image },
   dateAdded: { type: Date },
-  birthday: { type: Date }
+  birthday: { type: Date },
+  user: { 
+      type : Schema.Types.ObjectId,
+      ref: 'User',
+      required : true
+ }
 })
 
 const Plant = mongoose.model('Plant', plantSchema); 
