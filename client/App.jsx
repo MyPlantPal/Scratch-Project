@@ -13,7 +13,7 @@ const App = () => {
       <BrowserRouter>
           <Routes>
               <Route path='/' element={<MainPage />}></Route>
-              
+              <Route path='/signin' element={<MainPage />}></Route>
               <Route path='/create' element={<CreatePlant />}></Route>
               {/* <Route path='/update' element={<UpdateTool />}></Route> */}
           </Routes>
