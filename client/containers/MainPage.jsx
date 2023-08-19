@@ -22,6 +22,7 @@ import Plant from '../components/PlantCard.jsx';
 import { useNavigate } from 'react-router-dom';
 import NavSidePanel from '../components/NavSidePanel.jsx';
 import TotalPlantData from '../components/TotalPlantData.jsx';
+import PlantContainer from './PlantContainer.jsx';
 
 const MainPage = () => {
   const totalCards = useSelector((store) => store.plants.totalCards);
@@ -34,10 +35,8 @@ const MainPage = () => {
         <h1>LeafLaughLove</h1>
       </div>
       <div className="homePageContainer">
-
-        <NavSidePanel/>
-        <TotalPlantData/>
-        
+        <NavSidePanel />
+        <PlantContainer />
       </div>
     </div>
   );
