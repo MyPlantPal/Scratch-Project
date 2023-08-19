@@ -2,11 +2,25 @@ import * as types from '../constants/actionTypes.js';
 import { useDispatch } from 'react-redux';
 
 // ACTIONS HANDLE PAYLOAD FOR REDUCERS
-// OUR ACTIONS ARE LISTENING IN ORDER TO DISPATCH
+// OUR ACTIONS ARE JUST LISTENING IN ORDER TO DISPATCH
+
+// ACTIONS PSEUDO CODE 
+
+/*
+MVP: 
+Switch to pages ** if we don't want to do React Router
+Pop-up info card display
+Add a plant to collection
+Delete a card
+
+Stretches: 
+Update a card
+Handle water date --> updates the most recent water date (payload: newDate) handle this beforehand, fires on click
+Render profile image --> when you upload a plant image (payload: img url?), fires on upload img
 
 
-// Put as Much Logic as Possible in Reducers
-// Wherever possible, try to put as much of the logic for calculating a new state into the appropriate reducer, rather than in the code that prepares and dispatches the action (like a click handler). This helps ensure that more of the actual app logic is easily testable, enables more effective use of time-travel debugging, and helps avoid common mistakes that can lead to mutations and bugs.
+
+*/
 
 
 export const addCardActionCreator = marketId => ({
