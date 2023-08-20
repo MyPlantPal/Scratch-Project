@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module userController 
- * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
  * @description Controls authenticating and tracking user details and passwords
  *
@@ -20,15 +20,20 @@ const userController = {};
  * If successful, logs in, if not, ??
  */
 userController.login = async (req, res, next) => {
-  try {
-    const { username, password } = req.query;
-    const data = await User.find({ username });
-    if (data[0].password === password) {
-      res.locals.success = true;
-      next();
-    } else {
-      res.locals.success = false;
-      next();
+    try {
+        const { username, password } = req.query;
+        const data = await User.find({username});
+        res.locals.id = data[0].id;
+        res.locals.plants = data[0].plants;
+        if (data[0].password === password){
+            res.locals.success = true;
+            next()
+        }
+        else {
+            res.locals.success = false;
+            next();
+        }
+
     }
   } catch (err) {
     return next({
@@ -59,5 +64,27 @@ userController.createUser = async (req, res, next) => {
     });
   }
 };
+
+/**
+ * @name userController.setSSIDCookie
+ * @description Creates a cookie with the users ID
+ */
+
+userController.setSSIDCookie = async (req, res, next) => {
+  try {
+    res.cookie('ssid', res.locals.id, { httpOnly: true });
+    next();
+  } catch (err) {
+    return next({
+      log: `userController.setSSIDCookie ERROR : ${err}`,
+      message : {
+        err : 'userController.setSSIDCookie ERROR'
+      }    
+})
+    
+  }
+    
+  }
+
 
 module.exports = userController;

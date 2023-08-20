@@ -13,12 +13,12 @@ const SignUp = () => {
     navigate(path);
   };
 
-  const Submit = () => {
-    // signup functionality (POST)
+  // const Submit = () => {
+  //   // signup functionality (POST)
+  //   fetch('http://localhost:3000/leaf/')
+  //   // redirect to home after signed up (useNavigate)
 
-    // redirect to home after signed up (useNavigate)
-
-  };
+  // };
 
   return (
     <div className="signInPage">

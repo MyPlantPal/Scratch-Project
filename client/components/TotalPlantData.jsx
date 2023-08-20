@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module TotalPlantData
- * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
  * @description Display the header of all the relevant plant scores and quantities
  *

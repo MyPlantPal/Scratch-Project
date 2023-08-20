@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module index.js
- * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
  * @description Use all relevant reducers
  *

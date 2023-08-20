@@ -20,10 +20,11 @@ const SignIn = () => {
     navigate(path);
   };
 
-  const Submit = () => {
-    // login functionality
+  const Submit = (username, password) => {
+    // signup functionality (POST)
+    fetch(`http://localhost:3000/leaf/user/login?username=${username}&password=${password}`)
+    // redirect to home after signed up (useNavigate)
 
-		// redirect to home
   };
 
   return (
@@ -41,6 +42,7 @@ const SignIn = () => {
           </form>
 					<p>Don't have an account?</p>
 					<button onClick={toSignUp}>Sign Up</button>
+          <div>.</div>
 					<button onClick={toHome}>Temporary : Go straight to home</button>
         </div>
 				
