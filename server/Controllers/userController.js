@@ -12,6 +12,8 @@ userController.login = async (req, res, next) => {
     try {
         const { username, password } = req.query;
         const data = await User.find({username});
+        res.locals.id = data[0].id;
+        res.locals.plants = data[0].plants;
         if (data[0].password === password){
             res.locals.success = true;
             next()
@@ -51,5 +53,26 @@ userController.createUser = async (req, res, next) => {
         })
     }
 }
+
+/**
+ * @name userController.setSSIDCookie
+ * @description Creates a cookie with the users ID
+ */
+
+userController.setSSIDCookie = async (req, res, next) => {
+  try {
+    res.cookie('ssid', res.locals.id, { httpOnly: true });
+    next();
+  } catch (err) {
+    return next({
+      log: `userController.setSSIDCookie ERROR : ${err}`,
+      message : {
+        err : 'userController.setSSIDCookie ERROR'
+      }    
+})
+    
+  }
+    
+  }
 
 module.exports = userController;
