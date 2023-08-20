@@ -1,4 +1,15 @@
-const Plant = require('../models/plantModel'); 
+/**
+ * ************************************
+ *
+ * @module PlantController
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
+ * @date 08/18/2023
+ * @description Source of controllers for editing and changing state of individual plant cards
+ *
+ * ************************************
+ */
+
+const Plant = require('../models/plantModel');
 const User = require('../models/userModel');
 const { request } = require('../server');
 
@@ -62,7 +73,7 @@ plantController.deletePlant = (req, res, next) => {
 
 /**
  * @name plantController.updatePlant
- * @description not sure what we want to do if we want to update info... 
+ * @description not sure what we want to do if we want to update info...
  * Give a form to the user with information filled out with current info
  * and have the user replace the information
  */

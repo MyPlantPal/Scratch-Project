@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module plantRouter
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
+ * @date 08/18/2023
+ * @description plant router
+ *
+ * ************************************
+ */
+
 const express = require('express');
 const plantRouter = express.Router();
 const plantController = require('../Controllers/plantController')

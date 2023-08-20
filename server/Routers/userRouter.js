@@ -1,11 +1,22 @@
+/**
+ * ************************************
+ *
+ * @module userRouter
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
+ * @date 08/18/2023
+ * @description user Router
+ *
+ * ************************************
+ */
+
 const express = require('express');
 const userRouter = express.Router();
-const userController = require('../Controllers/userController')
+const userController = require('../Controllers/userController');
 
 /**
  * @name userRouter.get
  * @description Takes login data and sends to userController.login express middleware to verify authenticity
- * Returns authenticty. 
+ * Returns authenticty.
  */
 userRouter.get('/login', userController.login, userController.setSSIDCookie, (req, res) => {
   if (res.locals.success) {
@@ -14,7 +25,7 @@ userRouter.get('/login', userController.login, userController.setSSIDCookie, (re
   else {
     return res.status(400).send('Unsuccessful Login.');
   }
-})
+});
 
 /**
  * @name userRouter.post
@@ -22,7 +33,7 @@ userRouter.get('/login', userController.login, userController.setSSIDCookie, (re
  */
 userRouter.post('/createUser', userController.createUser, (req, res) => {
   return res.status(200).send('User created. Please log in.');
-})
+});
 
 // patch request -> update password
 // .updatePassword -> find user -> update DB

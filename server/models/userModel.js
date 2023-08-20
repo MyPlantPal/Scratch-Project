@@ -7,6 +7,7 @@ const Plant = require('./plantModel')
  * @name userSchema
  * @description Schema for users
  */
+
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
