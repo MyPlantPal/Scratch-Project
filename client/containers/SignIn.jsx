@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoginNavBar from "../components/LoginNav-Bar.jsx";
 
 const SignIn = () => {
 
@@ -26,10 +27,8 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <div className="signin-nav-bar">
-        <h1>LeafLaughLove</h1>
-      </div>
+    <div className="signInPage">
+      <LoginNavBar />
       <div className="signInContainer">
 
         <h2>Sign In:</h2>
