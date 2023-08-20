@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module app.jsx
- * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sum, Brandon Chmiel
+ * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
  * @description Act as intial call and the way to switch between different routes
  *
