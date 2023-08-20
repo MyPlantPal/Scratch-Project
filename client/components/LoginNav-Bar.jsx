@@ -17,7 +17,7 @@ const LoginNavBar = () => {
 
   return (
     <div className="loginNav-bar">
-        <h1>Green Leaf</h1>
+        <h1>MyPlantPal</h1>
         <img className='headerLogo' src={logo} alt="" />
     </div>
   );
