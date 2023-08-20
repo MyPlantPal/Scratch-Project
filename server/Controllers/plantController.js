@@ -13,6 +13,7 @@ const Plant = require('../models/plantModel');
 const User = require('../models/userModel');
 const { request } = require('../server');
 
+
 const plantController = {};
 
 /**
@@ -63,6 +64,7 @@ plantController.createPlant = async (req, res, next) => {
 }
 }
 
+
 /**
  * @name plantController.deletePlant
  * @description
@@ -70,6 +72,7 @@ plantController.createPlant = async (req, res, next) => {
 plantController.deletePlant = (req, res, next) => {
 
 }
+
 
 /**
  * @name plantController.updatePlant
@@ -82,3 +85,4 @@ plantController.updatePlant = (req, res, next) => {
 }
 
 module.exports = plantController;
+

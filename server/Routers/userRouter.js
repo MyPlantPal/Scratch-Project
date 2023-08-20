@@ -23,6 +23,7 @@ userRouter.get('/login', userController.login, userController.setSSIDCookie, (re
     return res.status(200).send(res.locals.plants);
   }
   else {
+
     return res.status(400).send('Unsuccessful Login.');
   }
 });
@@ -43,3 +44,4 @@ userRouter.post('/createUser', userController.createUser, (req, res) => {
 
 
 module.exports = userRouter; 
+

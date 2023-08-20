@@ -47,3 +47,4 @@ plantRouter.delete('', plantController.deletePlant, (req, res) => {
 })
 
 module.exports = plantRouter; 
+

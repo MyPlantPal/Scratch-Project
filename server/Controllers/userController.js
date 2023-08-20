@@ -33,16 +33,17 @@ userController.login = async (req, res, next) => {
             res.locals.success = false;
             next();
         }
+
     }
-    catch (err) {
-        return next({
-            log: `userController.login ERROR : ${err}`,
-            message : {
-              err : 'userController.login ERROR wrong input'
-            }    
-    })
-    }
-}
+  } catch (err) {
+    return next({
+      log: `userController.login ERROR : ${err}`,
+      message: {
+        err: 'userController.login ERROR wrong input',
+      },
+    });
+  }
+};
 
 /**
  * @name userController.createUser
@@ -84,5 +85,6 @@ userController.setSSIDCookie = async (req, res, next) => {
   }
     
   }
+
 
 module.exports = userController;
