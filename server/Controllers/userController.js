@@ -24,7 +24,8 @@ userController.login = async (req, res, next) => {
     try {
         const { username, password } = req.body;
         const data = await User.find({username: username});
-        if (data[0].password === password){
+        if (!data[0]) res.locals.success = false;
+        else if (data[0].password === password){
             res.locals.id = data[0].id;
             res.locals.success = true;
             next()
@@ -83,12 +84,10 @@ userController.setSSIDCookie = async (req, res, next) => {
 }
 
 userController.getSSIDCookie = async (req, res, next) => {
-  console.log('entered getSSIDCookie');
   try {
-    console.log("REQ COOKIES", req.cookies)
     const SSID = req.cookies.ssid;
-    console.log('SSID', SSID)
     res.locals.SSID = SSID;
+    next();
   } catch (err) {
     return next({
       log: `userController.getSSID ERROR : ${err}`,

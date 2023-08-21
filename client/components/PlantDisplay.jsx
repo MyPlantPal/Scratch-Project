@@ -27,7 +27,11 @@ import { useLocation } from 'react-router-dom';
 
 
 const PlantDisplay = () => {
+
+  const [ plantArr, setPlantArr ] = useState([]);
   
+  // useEffect(() )
+
   const location = useLocation();
   console.log("LOCATION", location.state)
   const plantArray = location.state.plantArray;
