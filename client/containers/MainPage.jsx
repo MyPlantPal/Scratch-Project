@@ -28,8 +28,9 @@ const MainPage = () => {
     <div>
       <NavBar />
       <div className="homePageContainer">
-        <NavSidePanel />
+        <div className='sidePanel'></div>
         <PlantContainer />
+        <div className='sidePanel'></div>
       </div>
     </div>
   );

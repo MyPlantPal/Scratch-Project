@@ -16,6 +16,7 @@ import TotalPlantData from '../components/TotalPlantData.jsx';
 const PlantContainer = () => {
   return (
     <div className="plantContainer">
+      <h2>Welcome!</h2>
       <TotalPlantData />
       <PlantDisplay />
     </div>

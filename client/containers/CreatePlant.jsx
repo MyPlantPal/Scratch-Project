@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import PlantDisplay from '../components/PlantDisplay.jsx';
 import Plant from '../components/PlantCard.jsx';
 import { useNavigate } from 'react-router-dom';
+import NavBar from '../components/Nav-Bar.jsx';
 
 
 // const [role, setRole] = useState(''); 
@@ -49,8 +50,19 @@ const CreatePlant = () => {
   }
 
   const [name, setName] = useState('');
+  const [species, setSpecies] = useState('');
   const [soilType, setSoilType] = useState('');
   const [waterFrequency, setWaterFrequency] = useState('');
+  const [fileUrl, setFileUrl] = useState(null);
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+
+    if (selectedFile) {
+      const url = URL.createObjectURL(selectedFile);
+      setFileUrl(url);
+    }
+  };
 
   const handleSubmission = (e) => {
     e.preventDefault(); 
@@ -62,60 +74,70 @@ const CreatePlant = () => {
 
   return (
     <div>
-      <div className="nav-bar">
-        <h1>LeafLaughLove</h1>
-      </div>
-      <div className="homePageContainer">
-        <div className="navSidePanel">
-          <button className="navButton">My Plants</button>
-          <hr />
-          <button className="navButton" onClick={toCreate}>
-            New Plants
-          </button>
-          <hr />
-          <button className="navButton">Discover</button>
-        </div>
-        
+      <NavBar />
         <main className = 'createContainer'> 
           <div className = 'createPlantCard'>
             <header className = 'createCardHeader'>
               <span className = 'createAvatar'>
-                
+              {fileUrl && <img className='avatarImage' src={fileUrl} alt ='preview of avatar'file/>}
               </span>
-              <span className = 'nameHeader'>
-                name
-              </span>
+              <div className='previewNameBox'>
+                <span className = 'previewName'>
+                  {name}
+                </span>
+              </div>
+              
             </header>
             <section className = 'inputField'>
               <div className='photoInput'>
                 <span>Input Image: </span>
-                <button className='photoButton'>Image</button>
+                <form action="/action_page.php">
+                <input
+                  className='createInput'
+                  type="file"
+                  id="chooseFileButton"
+                  name="filename"
+                  onChange={handleFileChange}
+                />
+                </form>
               </div>
-              <div className='nameInput'>
+              <div className='createLabels'>
                 <span>Name: </span>
                 <input
+                  className='createInput'
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className='soilTypeInput'>
+              <div className='createLabels'>
+                <span>Species: </span>
+                <input
+                  className='createInput'
+                  type="text"
+                  value={species}
+                  onChange={(e) => setSpecies(e.target.value)}
+                />
+              </div>
+              <div className='createLabels'>
                 <span>Soil Type: </span>
                 <input
+                  className='createInput'
                   type="text"
                   value={soilType}
                   onChange={(e) => setSoilType(e.target.value)}
                 />
               </div>
-              <div className='lastWateredInput'>
+              <div className='createLabels'>
                 <span>Water Frequency: </span>
                 <input
+                  className='createInput'
                   type="text"
                   value={waterFrequency}
                   onChange={(e) => setWaterFrequency(e.target.value)}
                 />
               </div>
-              <div className='submitInputButton'>
+              <div>
                 <button
                   onClick = {handleSubmission}
                 >Add New Plant</button>
@@ -123,8 +145,6 @@ const CreatePlant = () => {
             </section>  
           </div>
         </main> 
-
-      </div>
     </div>
   );
 };

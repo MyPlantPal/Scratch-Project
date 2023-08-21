@@ -21,11 +21,10 @@ const userController = {};
  */
 userController.login = async (req, res, next) => {
     try {
-        const { username, password } = req.query;
-        const data = await User.find({username});
-        res.locals.id = data[0].id;
-        res.locals.plants = data[0].plants;
+        const { username, password } = req.body;
+        const data = await User.find({username: username});
         if (data[0].password === password){
+            res.locals.id = data[0].id;
             res.locals.success = true;
             next()
         }
@@ -33,9 +32,7 @@ userController.login = async (req, res, next) => {
             res.locals.success = false;
             next();
         }
-
-    }
-  } catch (err) {
+    } catch (err) {
     return next({
       log: `userController.login ERROR : ${err}`,
       message: {
@@ -80,11 +77,9 @@ userController.setSSIDCookie = async (req, res, next) => {
       message : {
         err : 'userController.setSSIDCookie ERROR'
       }    
-})
-    
+    })
   }
-    
-  }
+}
 
 
 module.exports = userController;
