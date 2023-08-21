@@ -29,7 +29,6 @@ const plantController = {};
 plantController.getPlants = async (req, res, next) => {
   try {
     const data = await Plant.find({user: res.locals.id})
-    console.log(data);
     res.locals.data = data;
     return next();
   } catch (err) {

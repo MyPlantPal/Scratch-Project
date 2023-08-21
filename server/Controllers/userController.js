@@ -24,9 +24,7 @@ userController.login = async (req, res, next) => {
         const { username, password } = req.body;
         const data = await User.find({username: username});
         if (data[0].password === password){
-            console.log(data[0])
             res.locals.id = data[0].id;
-            console.log('res plants', res.locals.plants)
             res.locals.success = true;
             next()
         }

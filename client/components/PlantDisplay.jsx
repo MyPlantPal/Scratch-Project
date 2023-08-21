@@ -13,43 +13,7 @@ import React from 'react';
 import PlantCard from './PlantCard.jsx';
 import { useLocation } from 'react-router-dom';
 
-// const mockPlantDB = [
-//   {
-//     // photo: 'something',
-//     plantName: 'PlantName',
-//     DOB: '03/16/2000',
-//   },
-// ];
-
-// incoming res ; array of plant models
-
-
-const PlantDisplay = () => {
-  
-  const location = useLocation();
-  console.log("LOCATION", location)
-  //const plantArray = location.state.plantArray;
-
-  // render logic here :
-  //const { mockPlantDB } = props;
-  const plant = [];
- 
-  for (let i = 0; i < plantArray.length; i++) {
-    plants.push(
-      <PlantCard
-        // photo={mockPlantDB[i].photo}
-        name={plantArray[i].name}
-        species={plantArray[i].type}
-        lastWatered={plantArray[i].lastWatered}
-        frequency={plantArray[i].frequency}
-        soil={plantArray[i].soil}
-        lastPotted={plantArray[i].lastPotted}
-        sunlight={plantArray[i].sunlight}
-        dateAdded={plantArray[i].dateAdded}
-        bithday={plantArray[i].birthday}
-      />
-    );
-  }
+// SCHEMA FOR PLANT // 
   // name: { type: String, required: true, unique: true },
   // type: { type: String /* required: true */ },
   // lastWatered: { type: Date },
@@ -61,6 +25,32 @@ const PlantDisplay = () => {
   // dateAdded: { type: Date },
   // birthday: { type: Date },
 
+
+const PlantDisplay = () => {
+  
+  const location = useLocation();
+  console.log("LOCATION", location.state)
+  const plantArray = location.state.plantArray;
+
+  const plants = [];
+ 
+  for (let i = 0; i < plantArray.length; i++) {
+    plants.push(
+      <PlantCard
+        // photo={mockPlantDB[i].photo}
+        plantName={plantArray[i].name}
+        species={plantArray[i].type}
+        // photo = {plantArray[i].photoURL} <-- need a photo prop in plant schema
+        // lastWatered={plantArray[i].lastWatered}
+        // frequency={plantArray[i].frequency}
+        // soil={plantArray[i].soil}
+        // lastPotted={plantArray[i].lastPotted}
+        // sunlight={plantArray[i].sunlight}
+        // dateAdded={plantArray[i].dateAdded}
+        // DOB={plantArray[i].birthday}
+      />
+    );
+  }
 
   return (
     <div>

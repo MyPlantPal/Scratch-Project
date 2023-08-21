@@ -21,7 +21,7 @@ const TotalPlantData = () => {
     <div className="totalPlantDataBox">
       <div className="totalPlantData">
         {/* Total Plants: {totalCards} */}
-        Total Plants: 6421654
+        Total Plants: 12345
       </div>
       <div className="totalPlantData">Green Score: {greenScore}</div>
       <div className="totalPlantData">Filter Plants</div>

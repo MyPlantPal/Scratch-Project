@@ -9,37 +9,24 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [plantArray, setPlantArray] = useState('');
 
-	// useEffect for checking if logged in, dependent on signedIn state
-
-
-	// const toHome = () => {
-  //   let path = "/home";
-  //   navigate(path);
-  // };
-  
-
-  // useEffect(() => {
-  //   navigate('/home', { state: { plantArray } })
-  // }, [signedIn])
-
   let navigate = useNavigate();
+
   const toSignUp = () => {
     let path = "/signup";
     navigate(path);
   };
 
-  const toHome = () => {
+  const toHome = (plantArray) => { //i passed in from line 58 // plantArray
     let path = "/home";
-    navigate(path);
+    console.log("State of Plant", plantArray)
+    navigate(path, {state: plantArray});
   };
 
   const Submit = async () => {
-
-    
     // signup functionality (POST)
     try {
-      console.log('Entered try block');
-      console.log('username', username);
+      // console.log('Entered try block');
+      // console.log('username', username);
       const data = {
         username: username,
         password: password,
@@ -51,9 +38,7 @@ const SignIn = () => {
       });
       const plantArray = await response.json();
       setPlantArray(plantArray);
-      console.log("RESPONSE", plantArray);
-      // setSignedIn(true);
-      toHome;
+      toHome({plantArray});
     } catch (err) {
       console.log(err);
     }

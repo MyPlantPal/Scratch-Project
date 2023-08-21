@@ -37,11 +37,22 @@ userRouter.post('/createUser', userController.createUser, (req, res) => {
   return res.status(200).send('User created. Please log in.');
 });
 
-// patch request -> update password
-// .updatePassword -> find user -> update DB
+// /**
+//  * @name userRouter.patch
+//  * @description sends a patch reqquest with a new password.. updates new password in database
+//  */
+// userRouter.patch('/updateUser', userController.updateUser, (req, res) => {
 
-// delete request -> delete user
-// .deleteUser -> find person -> remove from database -> return success or fail
+// });
+
+// /**
+//  * @name userRouter.delete
+//  * @description sends a delete request to delete a user... removes the user from database
+//  */
+// // .deleteUser -> find person -> remove from database -> return success or fail
+// userRouter.delete('/deleteUser', userController.deleteUser, (req, res) => {
+
+// });
 
 
 module.exports = userRouter; 
