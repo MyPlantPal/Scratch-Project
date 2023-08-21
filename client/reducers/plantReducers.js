@@ -4,7 +4,7 @@
  * @module plantReducer
  * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
- * @description Create the relevant reducers to change, edit, and affect different plant cards
+ * @description Create the relevant reducers to change, edit, and affect different plant cards. Defunct, can be used if refactoring to redux 
  *
  * ************************************
  */
@@ -27,13 +27,15 @@ Collections Array = []
 const initialState = {
   totalPlants: 0,
   plantList: [],
+  greenScore: '',
 };
 
 const plantsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.ADD_PLANT: {
+    case types.CREATE_PLANT: {
       //We create the mongo object
       //Then take that object into the plant creator
+      
     }
     default: {
       return state;

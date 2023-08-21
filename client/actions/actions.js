@@ -4,7 +4,7 @@
  * @module  actions.js
  * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
- * @description Create the indidual actions to call the intended functions
+ * @description Create the indidual actions to call the intended functions. Unused as everything handled in the server side and via react router
  *
  * ************************************
  */
@@ -32,10 +32,9 @@ Render profile image --> when you upload a plant image (payload: img url?), fire
 
 */
 
-// export const addCardActionCreator = marketId => ({
-//   type: types.ADD_CARD,
-//   payload: marketId,
-// });
+export const createPlantActionCreator = () => ({
+  type: types.CREATE_PLANT,
+});
 
 // export const deleteCardActionCreator = marketId => ({
 //   type: types.DELETE_CARD,

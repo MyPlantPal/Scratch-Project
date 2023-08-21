@@ -4,46 +4,54 @@ import LoginNavBar from "../components/LoginNav-Bar.jsx";
 
 const SignIn = () => {
 
+  //Relevant states
 	const [ signedIn, setSignedIn ] = useState(false);
   const [ username, setUsername ] = useState('');
   const [password, setPassword] = useState('');
-  const [plantArray, setPlantArray] = useState('');
 
+  //Function to enable the ability to switch pages
   let navigate = useNavigate();
 
+//Navigation paths. Can be modularized into its own set of files due to being called repeatedly multiple locations. 
   const toSignUp = () => {
     let path = "/signup";
     navigate(path);
   };
 
-  const toHome = (plantArray) => { //i passed in from line 58 // plantArray
+  const toHome = () => { 
     let path = "/home";
-    console.log("State of Plant", plantArray)
-    navigate(path, {state: plantArray});
+    navigate(path);
   };
 
+  //The functionality to create a new log in
   const Submit = async () => {
     // signup functionality (POST)
     try {
       // console.log('Entered try block');
       // console.log('username', username);
+      //Create the username and password
       const data = {
         username: username,
         password: password,
       }
+      //Post request into the server side
       const response = await fetch(`http://localhost:8080/leaf/user/login`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const plantArray = await response.json();
-      setPlantArray(plantArray);
-      toHome({plantArray});
+      //Check to make sure the response succeeds, if so use the correct navigation. 
+      if (response.ok) {
+        const plantArray = await response.json();
+        toHome();
+      }
     } catch (err) {
-      console.log(err);
+      console.log(err); 
     }
   };
   
+  //reder and create buttons to call the submit function. Take the username and passwords from below to apply to the data above,  the submit will send those to that function.
+  //Sign up redirects to sign up page
   return (
     <div className="signInPage">
       <LoginNavBar />
@@ -53,12 +61,10 @@ const SignIn = () => {
 
         <div className="signInBox">
           <input name="username" type="text" placeholder="username" value = {username} onChange={(e) => setUsername(e.target.value)}/>
-          <input name="password" type="text" placeholder="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
+          <input name="password" type="password" placeholder="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
           <button onClick={Submit}>Sign In</button>
 					<p>Don't have an account?</p>
 					<button onClick={toSignUp}>Sign Up</button>
-          <div>.</div>
-					<button onClick={toHome}>Temporary : Go straight to home</button>
         </div>
 				
       </div>
@@ -66,6 +72,5 @@ const SignIn = () => {
   );
 };
 
-// export default connect (SignIn)(plantArray);
 
 export default SignIn;

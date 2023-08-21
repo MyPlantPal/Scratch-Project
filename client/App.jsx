@@ -17,9 +17,9 @@ import './stylesheets/styles.css'
 import SignIn from './containers/SignIn.jsx';
 import SignUp from './containers/SignUp.jsx';
 import MainPage from './containers/MainPage.jsx';
-import CreatePlant from './containers/CreatePlant.jsx';
+import CreatePlant from './containers/NewPlantContainer.jsx';
 
-// here we need to decide what is initially rendered
+//The relevant routes to direct every part of the program
 
 const App = () => {
   return (

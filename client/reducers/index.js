@@ -4,7 +4,7 @@
  * @module index.js
  * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
- * @description Use all relevant reducers
+ * @description Use all relevant reducers. Defunct aspect from initial idea to use redux. Left in case anyone wants to refactor the program to use redux
  *
  * ************************************
  */

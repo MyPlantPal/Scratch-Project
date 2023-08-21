@@ -11,7 +11,7 @@
 
 
 /* font family: Bricolage Grotesque (300, 500 and 700) */
- @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,500;10..48,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,500;10..48,700&display=swap');
 
 :root {
   --darkestPrimary: #b39b66;
@@ -29,6 +29,7 @@ html {
 
 body {
   margin: 0;
+  background-color: var(--darkPrimary);
 }
 
 input {
@@ -37,6 +38,10 @@ input {
 
 button {
   font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .loginNav-bar {
@@ -82,6 +87,12 @@ button {
   border-radius: 2em;
   padding: .5em;
   margin: .5em;
+}
+
+.navLinks:hover {
+  cursor: pointer;
+  background-color: var(--darkestPrimary);
+  color: white;
 }
 
 .signin-nav-bar {
@@ -178,16 +189,22 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 100vh;
 }
 
 .plantBox {
   height: auto;
+  text-align: left;
   width: 15em;
   margin: 1em;
   padding: 1em;
   border: 1px solid black;
   border-radius: 2em;
   box-shadow: 5px 5px 5px var(--darkPrimary);
+}
+
+.plantBox:hover {
+  border: 2px solid lightgray;
 }
 
 .photoAndInfoTag {
@@ -285,6 +302,6 @@ input {
 
 #chooseFileButton {
   margin: 0px;
-  margin-top: 1em; 
+  margin-top: 1em;
   padding: 0px;
 }

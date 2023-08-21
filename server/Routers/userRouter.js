@@ -17,14 +17,13 @@ const plantController = require('../Controllers/plantController');
 /**
  * @name userRouter.get
  * @description Takes login data and sends to userController.login express middleware to verify authenticity
- * Returns authenticty.
+ * If authentic, sets an SSID cookie and then gets plants. 
  */
 userRouter.post('/login', userController.login, userController.setSSIDCookie, plantController.getPlants, (req, res) => {
   if (res.locals.success) {
-    return res.status(200).send(res.locals.data); //send all plant data
+    return res.status(200).send(res.locals.data); 
   }
   else {
-
     return res.status(400).send('Unsuccessful Login.');
   }
 });
@@ -37,23 +36,23 @@ userRouter.post('/createUser', userController.createUser, (req, res) => {
   return res.status(200).send('User created. Please log in.');
 });
 
-// /**
-//  * @name userRouter.patch
-//  * @description sends a patch reqquest with a new password.. updates new password in database
-//  */
-// userRouter.patch('/updateUser', userController.updateUser, (req, res) => {
+/**
+ * @name userRouter.patch
+ * @description sends a patch request with a new password.. updates new password in database
+ * TODO:
+ */
+userRouter.patch('/updateUser', userController.updateUser, (req, res) => {
+  return res.status(400);
+});
 
-// });
-
-// /**
-//  * @name userRouter.delete
-//  * @description sends a delete request to delete a user... removes the user from database
-//  */
-// // .deleteUser -> find person -> remove from database -> return success or fail
-// userRouter.delete('/deleteUser', userController.deleteUser, (req, res) => {
-
-// });
-
+/**
+ * @name userRouter.delete
+ * @description sends a delete request to delete a user... removes the user from database
+ * TODO:
+ */
+userRouter.delete('/deleteUser', userController.deleteUser, (req, res) => {
+  return res.status(400);
+});
 
 module.exports = userRouter; 
 
