@@ -27,7 +27,7 @@ const SignUp = () => {
         <h2>Sign Up:</h2>
 
         <div className="signInBox">
-          <form onSubmit={Submit}>
+          <form onSubmit=''>
             <input name="username" type="text" placeholder="username" />
             <input name="password" type="text" placeholder="password" />
             <input type="submit" value="Sign Up" />

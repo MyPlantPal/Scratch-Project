@@ -30,13 +30,13 @@ if (process.env.NODE_ENV === 'production') {
     return res.status(200).sendFile(path.join(__dirname, '../index.html'));
   });
 }
+
 /**
  * @name mongoose.connect
  * @description Link to Mongoose database;
  * Currently unsure how to handle accessing two different db's (Plant/Person)
  */
-const MONGO_URI = `mongodb+srv://codesmith:ZkzwAyxC1feUybTC@plantdb.5rwujf8.mongodb.net/`;
-// mongoose.connect(MONGO_URI); // original method
+const MONGO_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@plantdb.5rwujf8.mongodb.net/`;
 mongoose
   .connect(MONGO_URI, {
     // options for the connect method to parse the URI

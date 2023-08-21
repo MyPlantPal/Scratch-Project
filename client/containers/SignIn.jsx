@@ -5,28 +5,45 @@ import LoginNavBar from "../components/LoginNav-Bar.jsx";
 const SignIn = () => {
 
 	const [ signedIn, setSignedIn ] = useState(false);
-
-	// useEffect for checking if logged in, dependent on signedIn state
-
-
+  const [ username, setUsername ] = useState('');
+  const [password, setPassword] = useState('');
+  const [plantArray, setPlantArray] = useState('');
 
   let navigate = useNavigate();
+
   const toSignUp = () => {
     let path = "/signup";
     navigate(path);
   };
-	const toHome = () => {
+
+  const toHome = (plantArray) => { //i passed in from line 58 // plantArray
     let path = "/home";
-    navigate(path);
+    console.log("State of Plant", plantArray)
+    navigate(path, {state: plantArray});
   };
 
-  const Submit = (username, password) => {
+  const Submit = async () => {
     // signup functionality (POST)
-    fetch(`http://localhost:3000/leaf/user/login?username=${username}&password=${password}`)
-    // redirect to home after signed up (useNavigate)
-
+    try {
+      // console.log('Entered try block');
+      // console.log('username', username);
+      const data = {
+        username: username,
+        password: password,
+      }
+      const response = await fetch(`http://localhost:8080/leaf/user/login`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const plantArray = await response.json();
+      setPlantArray(plantArray);
+      toHome({plantArray});
+    } catch (err) {
+      console.log(err);
+    }
   };
-
+  
   return (
     <div className="signInPage">
       <LoginNavBar />
@@ -35,11 +52,9 @@ const SignIn = () => {
         <h2>Sign In:</h2>
 
         <div className="signInBox">
-          <form onSubmit={Submit}>
-            <input name="username" type="text" placeholder="username" />
-            <input name="password" type="text" placeholder="password" />
-						<input type="submit" value='Sign In'/>
-          </form>
+          <input name="username" type="text" placeholder="username" value = {username} onChange={(e) => setUsername(e.target.value)}/>
+          <input name="password" type="text" placeholder="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
+          <button onClick={Submit}>Sign In</button>
 					<p>Don't have an account?</p>
 					<button onClick={toSignUp}>Sign Up</button>
           <div>.</div>
@@ -50,5 +65,7 @@ const SignIn = () => {
     </div>
   );
 };
+
+// export default connect (SignIn)(plantArray);
 
 export default SignIn;

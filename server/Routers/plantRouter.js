@@ -13,13 +13,13 @@ const express = require('express');
 const plantRouter = express.Router();
 const plantController = require('../Controllers/plantController')
 
-/**
- * @name PlantRouter-GetPlant
- * @description Gets the Plant information from data base
- */
-plantRouter.get('/', plantController.getPlants, (req,res) => {
-  return res.status(200).send(res.locals.data)
-});
+// /**
+//  * @name PlantRouter-GetPlant
+//  * @description Gets the Plant information from data base
+//  */
+// plantRouter.get('/', plantController.getPlants, (req,res) => {
+//   return res.status(200).send(res.locals.data)
+// });
 
 /**
  * @name PlantRouter-CreatePlant
@@ -29,22 +29,22 @@ plantRouter.post('/createplant', plantController.createPlant, (req, res) => {
   return res.status(200).send('Plant added')
 })
 
-/**
- * @name PlantRouter-UpdatePlant
- * @description Gets the plant information and lets the user modify certain parts of the plant information
- * Send that information back as a patch 
- */
-plantRouter.patch('', plantController.updatePlant, (req, res) => {
+// /**
+//  * @name PlantRouter-UpdatePlant
+//  * @description Gets the plant information and lets the user modify certain parts of the plant information
+//  * Send that information back as a patch 
+//  */
+// plantRouter.patch('', plantController.updatePlant, (req, res) => {
 
-})
+// })
 
-/**
- * @name PlantRouter-deletePlant
- * @description User identifies what plant to find and deletes its from the datahbase
- */
-plantRouter.delete('', plantController.deletePlant, (req, res) => {
+// /**
+//  * @name PlantRouter-deletePlant
+//  * @description User identifies what plant to find and deletes its from the datahbase
+//  */
+// plantRouter.delete('', plantController.deletePlant, (req, res) => {
 
-})
+// })
 
 module.exports = plantRouter; 
 

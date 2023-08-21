@@ -11,45 +11,47 @@
 
 import React from 'react';
 import PlantCard from './PlantCard.jsx';
+import { useLocation } from 'react-router-dom';
 
-const mockPlantDB = [
-  {
-    photo: 'url',
-    plantName: 'PlantName',
-    DOB: '03/16/2000',
-  },
-];
+// SCHEMA FOR PLANT // 
+  // name: { type: String, required: true, unique: true },
+  // type: { type: String /* required: true */ },
+  // lastWatered: { type: Date },
+  // frequency: { type: Number },
+  // soil: { type: String },
+  // lastPotted: { type: Date },
+  // sunlight: { type: String },
+  // // photo: { type: Image },
+  // dateAdded: { type: Date },
+  // birthday: { type: Date },
 
-const PlantDisplay = (props) => {
-  // render logic here :
+
+const PlantDisplay = () => {
+  
+  const location = useLocation();
+  console.log("LOCATION", location.state)
+  const plantArray = location.state.plantArray;
+
   const plants = [];
-  //const { mockPlantDB } = props;
-
-  for (let i = 0; i < mockPlantDB.length; i++) {
-    console.log('MOCK DB', mockPlantDB);
+ 
+  for (let i = 0; i < plantArray.length; i++) {
     plants.push(
       <PlantCard
-        photo={mockPlantDB[i].photo}
-        plantName={mockPlantDB[i].plantName}
-        DOB={mockPlantDB[i].DOB}
-      />,
-      <PlantCard
-        photo={mockPlantDB[i].photo}
-        plantName={mockPlantDB[i].plantName}
-        DOB={mockPlantDB[i].DOB}
-      />,
-      <PlantCard
-        photo={mockPlantDB[i].photo}
-        plantName={mockPlantDB[i].plantName}
-        DOB={mockPlantDB[i].DOB}
-      />,
-      <PlantCard
-        photo={mockPlantDB[i].photo}
-        plantName={mockPlantDB[i].plantName}
-        DOB={mockPlantDB[i].DOB}
+        // photo={mockPlantDB[i].photo}
+        plantName={plantArray[i].name}
+        species={plantArray[i].type}
+        // photo = {plantArray[i].photoURL} <-- need a photo prop in plant schema
+        // lastWatered={plantArray[i].lastWatered}
+        // frequency={plantArray[i].frequency}
+        // soil={plantArray[i].soil}
+        // lastPotted={plantArray[i].lastPotted}
+        // sunlight={plantArray[i].sunlight}
+        // dateAdded={plantArray[i].dateAdded}
+        // DOB={plantArray[i].birthday}
       />
     );
   }
+
   return (
     <div>
       <div className="plantDisplay">{plants}</div>
