@@ -42,12 +42,16 @@ const CreatePlantCard = props => {
     e.preventDefault(); 
     // fire a post request to the backend
     console.log('Submit Button clicked');
-    const bundleOfData = {name, soilType, waterFrequency, fileUrl};
-    console.log(bundleOfData);
+    const data = {
+      name: name, 
+      type: species,
+      soil: soilType, 
+      frequency: waterFrequency};
+    console.log(data);
     fetch('http://localhost:8080/leaf/plant/createplant', {
       method: POST,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(bundleOfData),
+      body: JSON.stringify(data),
     })
     .then(() => {
       console.log('new changes!');
