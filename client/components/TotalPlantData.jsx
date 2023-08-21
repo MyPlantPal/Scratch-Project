@@ -15,7 +15,7 @@ import { useSelector } from 'react-redux';
 const TotalPlantData = () => {
   const totalCards = useSelector((store) => store.plants.totalCards);
   const plantList = useSelector((store) => store.plants.plantList);
-  const greenScore = 1000;
+  const greenScore = useSelector((store) => store.plants.greenScore);
 
   return (
     <div className="totalPlantDataBox">

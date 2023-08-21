@@ -27,13 +27,15 @@ Collections Array = []
 const initialState = {
   totalPlants: 0,
   plantList: [],
+  greenScore: '',
 };
 
 const plantsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.ADD_PLANT: {
+    case types.CREATE_PLANT: {
       //We create the mongo object
       //Then take that object into the plant creator
+      
     }
     default: {
       return state;

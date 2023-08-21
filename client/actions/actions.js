@@ -32,10 +32,9 @@ Render profile image --> when you upload a plant image (payload: img url?), fire
 
 */
 
-// export const addCardActionCreator = marketId => ({
-//   type: types.ADD_CARD,
-//   payload: marketId,
-// });
+export const createPlantActionCreator = () => ({
+  type: types.CREATE_PLANT,
+});
 
 // export const deleteCardActionCreator = marketId => ({
 //   type: types.DELETE_CARD,
