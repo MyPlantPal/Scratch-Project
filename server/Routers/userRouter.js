@@ -12,15 +12,16 @@
 const express = require('express');
 const userRouter = express.Router();
 const userController = require('../Controllers/userController');
+const plantController = require('../Controllers/plantController');
 
 /**
  * @name userRouter.get
  * @description Takes login data and sends to userController.login express middleware to verify authenticity
  * Returns authenticty.
  */
-userRouter.get('/login', userController.login, userController.setSSIDCookie, (req, res) => {
+userRouter.post('/login', userController.login, userController.setSSIDCookie, plantController.getPlants, (req, res) => {
   if (res.locals.success) {
-    return res.status(200).send(res.locals.plants);
+    return res.status(200).send(res.locals.data); //send all plant data
   }
   else {
 

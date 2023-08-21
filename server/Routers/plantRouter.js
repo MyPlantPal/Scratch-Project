@@ -13,13 +13,13 @@ const express = require('express');
 const plantRouter = express.Router();
 const plantController = require('../Controllers/plantController')
 
-/**
- * @name PlantRouter-GetPlant
- * @description Gets the Plant information from data base
- */
-plantRouter.get('/', plantController.getPlants, (req,res) => {
-  return res.status(200).send(res.locals.data)
-});
+// /**
+//  * @name PlantRouter-GetPlant
+//  * @description Gets the Plant information from data base
+//  */
+// plantRouter.get('/', plantController.getPlants, (req,res) => {
+//   return res.status(200).send(res.locals.data)
+// });
 
 /**
  * @name PlantRouter-CreatePlant

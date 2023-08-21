@@ -19,12 +19,12 @@ const TotalPlantData = () => {
 
   return (
     <div className="totalPlantDataBox">
-      <div class="totalPlantData">
+      <div className="totalPlantData">
         {/* Total Plants: {totalCards} */}
         Total Plants: 6421654
       </div>
-      <div class="totalPlantData">Green Score: {greenScore}</div>
-      <div class="totalPlantData">Filter Plants</div>
+      <div className="totalPlantData">Green Score: {greenScore}</div>
+      <div className="totalPlantData">Filter Plants</div>
     </div>
   );
 };

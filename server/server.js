@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     return res.status(200).sendFile(path.join(__dirname, '../index.html'));
   });
 }
+
 /**
  * @name mongoose.connect
  * @description Link to Mongoose database;
@@ -58,6 +59,7 @@ app.use(express.urlencoded({ extended: true }));
  * @name
  * @description Setting up routers
  */
+
 app.use('/leaf/user', userRouter);
 app.use('/leaf/plant', plantRouter);
 

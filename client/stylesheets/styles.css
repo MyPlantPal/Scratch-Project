@@ -133,6 +133,7 @@ input {
   grid-row-gap: 0px;
   grid-template-columns: 1fr 6fr 1fr;
   grid-template-rows: 1fr;
+  height: 100vh;
 }
 
 /* .navSidePanel {

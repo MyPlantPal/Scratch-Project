@@ -16,13 +16,19 @@ const { request } = require('../server');
 
 const plantController = {};
 
+
+// console.log(data[0])
+// res.locals.id = data[0].id;
+// res.locals.plants = data[0].plants;
+// console.log('res plants', res.locals.plants)
+
 /**
  * @name plantController.getPlant 
  * @description Grabs plant information from the database
  */
 plantController.getPlants = async (req, res, next) => {
   try {
-    const data = await Plant.find({})
+    const data = await Plant.find({user: res.locals.id})
     console.log(data);
     res.locals.data = data;
     return next();
@@ -61,7 +67,7 @@ plantController.createPlant = async (req, res, next) => {
         err : 'userController.createPlant ERROR wrong input'
       }    
     })
-}
+  }
 }
 
 
