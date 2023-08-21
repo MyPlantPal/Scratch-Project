@@ -9,9 +9,9 @@
  * ************************************
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PlantCard from './PlantCard.jsx';
-import { useLocation } from 'react-router-dom';
+import { useLocation, } from 'react-router-dom';
 
 // SCHEMA FOR PLANT // 
   // name: { type: String, required: true, unique: true },
@@ -27,34 +27,27 @@ import { useLocation } from 'react-router-dom';
 
 
 const PlantDisplay = () => {
+  const [plantArray, setPlantArray] = useState([])
   
-  const location = useLocation();
-  console.log("LOCATION", location.state)
-  const plantArray = location.state.plantArray;
+  useEffect(() => {
+    loadPlants();
+  },[])
 
-  const plants = [];
- 
-  for (let i = 0; i < plantArray.length; i++) {
-    plants.push(
-      <PlantCard
-        // photo={mockPlantDB[i].photo}
-        plantName={plantArray[i].name}
-        species={plantArray[i].type}
-        // photo = {plantArray[i].photoURL} <-- need a photo prop in plant schema
-        // lastWatered={plantArray[i].lastWatered}
-        // frequency={plantArray[i].frequency}
-        // soil={plantArray[i].soil}
-        // lastPotted={plantArray[i].lastPotted}
-        // sunlight={plantArray[i].sunlight}
-        // dateAdded={plantArray[i].dateAdded}
-        // DOB={plantArray[i].birthday}
-      />
-    );
-  }
+  const loadPlants = async () => {
+    try {
+      const data = await fetch('http://localhost:8080/leaf/plant/getPlants')
+      const totPlantList = await data.json(); 
+      setPlantArray(totPlantList);
+      } catch (error) {
+        console.log(error);
+      } 
+    }
 
   return (
-    <div>
-      <div className="plantDisplay">{plants}</div>
+    <div className='plantDisplay'>
+      {plantArray.map((plant) => (
+        <PlantCard key={plant.id} plantName={plant.name} species={plant.type} lastWatered={plant.lastWatered} frequency={plant.frequency} />
+      ))}
     </div>
   );
 };

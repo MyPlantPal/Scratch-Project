@@ -17,7 +17,6 @@
 				<div className='plantDetail'>Sunlight: {sunlight}</div>
 				<div className='plantDetail'>DOB: {DOB}</div>
 				<div className='plantDetail'>Date Added: {dateAdded}</div> */
- 
 
 import React from 'react';
 const PlantCard = (props) => {

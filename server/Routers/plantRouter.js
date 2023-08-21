@@ -23,6 +23,10 @@ const userController = require('../Controllers/userController');
 //   return res.status(200).send(res.locals.data)
 // });
 
+plantRouter.get('/getplants', userController.getSSIDCookie, plantController.getPlants, (req, res) => {
+  res.status(200).send(res.locals.data);
+})
+
 /**
  * @name PlantRouter-CreatePlant
  * @description Grabs plant information from UI and creates a plant and uploads to MongoDB

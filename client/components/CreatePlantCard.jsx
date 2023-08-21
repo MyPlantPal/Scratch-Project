@@ -58,7 +58,7 @@ const CreatePlantCard = props => {
     })
     .then(() => {
       console.log('new changes!');
-      toHome;
+      toHome();
     });
   }
 

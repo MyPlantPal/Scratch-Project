@@ -31,8 +31,8 @@ const NavBar = () => {
 
   const signOut = () => {
     console.log('sign out');
-
-    // sign out functionality
+    // sign out functionality here
+    
   }
 
   return (

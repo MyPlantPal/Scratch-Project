@@ -7,7 +7,6 @@ const SignIn = () => {
 	const [ signedIn, setSignedIn ] = useState(false);
   const [ username, setUsername ] = useState('');
   const [password, setPassword] = useState('');
-  const [plantArray, setPlantArray] = useState('');
 
   let navigate = useNavigate();
 
@@ -16,10 +15,9 @@ const SignIn = () => {
     navigate(path);
   };
 
-  const toHome = (plantArray) => { //i passed in from line 58 // plantArray
+  const toHome = () => { //i passed in from line 58 // plantArray
     let path = "/home";
-    console.log("State of Plant", plantArray)
-    navigate(path, {state: plantArray});
+    navigate(path);
   };
 
   const Submit = async () => {
@@ -36,9 +34,10 @@ const SignIn = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const plantArray = await response.json();
-      setPlantArray(plantArray);
-      toHome({plantArray});
+      if (response.ok) {
+        const plantArray = await response.json();
+        toHome();
+      }
     } catch (err) {
       console.log(err);
     }
@@ -53,12 +52,10 @@ const SignIn = () => {
 
         <div className="signInBox">
           <input name="username" type="text" placeholder="username" value = {username} onChange={(e) => setUsername(e.target.value)}/>
-          <input name="password" type="text" placeholder="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
+          <input name="password" type="password" placeholder="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
           <button onClick={Submit}>Sign In</button>
 					<p>Don't have an account?</p>
 					<button onClick={toSignUp}>Sign Up</button>
-          <div>.</div>
-					<button onClick={toHome}>Temporary : Go straight to home</button>
         </div>
 				
       </div>

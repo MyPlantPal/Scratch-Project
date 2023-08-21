@@ -29,6 +29,7 @@ html {
 
 body {
   margin: 0;
+  background-color: var(--darkPrimary);
 }
 
 input {
@@ -37,6 +38,10 @@ input {
 
 button {
   font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .loginNav-bar {
@@ -82,6 +87,12 @@ button {
   border-radius: 2em;
   padding: .5em;
   margin: .5em;
+}
+
+.navLinks:hover {
+  cursor: pointer;
+  background-color: var(--darkestPrimary);
+  color: white;
 }
 
 .signin-nav-bar {
@@ -178,6 +189,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 100vh;
 }
 
 .plantBox {
@@ -188,6 +200,10 @@ input {
   border: 1px solid black;
   border-radius: 2em;
   box-shadow: 5px 5px 5px var(--darkPrimary);
+}
+
+.plantBox:hover {
+  border: 2px solid lightgray;
 }
 
 .photoAndInfoTag {

@@ -42,7 +42,7 @@ plantController.createPlant = async (req, res, next) => {
   try {
     // const { name, type, lastWatered, frequency, soil, lastPotted, sunlight, dateAdded, birthday } = req.body; 
     const { body } = req
-    body.user = res.locals.SSID;
+    body.user = res.locals.id;
     const data = await Plant.create(body);
     res.locals.data = data;
     const plantId = data.id;
