@@ -9,30 +9,30 @@
  * ************************************
  */
 
-/**
- * 				<div className='plantDetail'>Last Watered: {lastWatered}</div>
-				<div className='plantDetail'>Watering Frequency: {frequency}</div>
-				<div className='plantDetail'>Soil Type: {soil}</div>
-				<div className='plantDetail'>Last Potted: {lastPotted}</div>
-				<div className='plantDetail'>Sunlight: {sunlight}</div>
-				<div className='plantDetail'>DOB: {DOB}</div>
-				<div className='plantDetail'>Date Added: {dateAdded}</div> */
 
 import React from 'react';
 const PlantCard = (props) => {
-  const { photo, plantName, DOB, species } = props;
+
+  //Take in and deconstruct the relevant props from the plant display to create the indivual card components
+  const { plantName, species, lastWatered, frequency, soil, lastPotted, sunlight, dateAdded/*, photo */} = props; //photo currently doesn't work
 
   return (
     <div className="plantBox">
       <div className="photoAndInfoTag">
         <div className="plantPhoto">
-          <img src={photo} alt="" />
+          {/* <img src={photo} alt="" /> */}
         </div>
         <div className="plantName">{plantName}</div>
       </div>
 
       <div className="infoContainer">
         <div className='plantDetail'>Species: {species}</div>
+        <div className='plantDetail'>Last Watered: {lastWatered}</div>
+        <div className='plantDetail'>Frequency: {frequency}</div>
+        <div className='plantDetail'>Soil: {soil}</div>
+        <div className='plantDetail'>Last Potted: {lastPotted}</div>
+        <div className='plantDetail'>Sunlight: {sunlight}</div>
+        <div className='plantDetail'>Date Added: {dateAdded}</div>
       </div>
     </div>
   );

@@ -4,8 +4,7 @@
  * @module  CreatePlant
  * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
- * @description Container to render the UI for the individual plant cards and add their functionality.
- * Functionality has been done inside of Plant Card, this file most likely can be deleted, wait to consult
+ * @description Container to render the UI for the individual plant cards and add their functionality. Defunct section that was intended for redux. 
  * ************************************
  */
 
@@ -16,7 +15,7 @@ import * as types from '../constants/actionTypes';
 import CreatePlantCard from '../components/CreatePlantCard.jsx';
 import NavBar from '../components/Nav-Bar.jsx';
 
-
+//Unused stretch features
 // const [role, setRole] = useState(''); 
 // const [action, setAction] = useState(''); 
 // const [description, setDescription] = useState(''); 
@@ -42,15 +41,14 @@ import NavBar from '../components/Nav-Bar.jsx';
 
 const NewPlantContainer = () => {
 
-
-
+  //relevant state
   const [name, setName] = useState('');
   const [species, setSpecies] = useState('');
   const [soilType, setSoilType] = useState('');
   const [waterFrequency, setWaterFrequency] = useState('');
   const [fileUrl, setFileUrl] = useState(null);
 
-  // REDUX FUNCTIONALITY 
+  //Unused redux functionality 
 
   const dispatch = useDispatch();
 
@@ -65,7 +63,7 @@ const NewPlantContainer = () => {
       setFileUrl(url);
     }
   };
-
+//The rendering of the components
   return (
     <div>
       <NavBar />

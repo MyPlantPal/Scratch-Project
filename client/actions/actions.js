@@ -4,7 +4,7 @@
  * @module  actions.js
  * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
- * @description Create the indidual actions to call the intended functions
+ * @description Create the indidual actions to call the intended functions. Unused as everything handled in the server side and via react router
  *
  * ************************************
  */

@@ -11,7 +11,7 @@
 
 
 /* font family: Bricolage Grotesque (300, 500 and 700) */
- @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,500;10..48,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,500;10..48,700&display=swap');
 
 :root {
   --darkestPrimary: #b39b66;
@@ -194,6 +194,7 @@ input {
 
 .plantBox {
   height: auto;
+  text-align: left;
   width: 15em;
   margin: 1em;
   padding: 1em;

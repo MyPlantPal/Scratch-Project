@@ -11,29 +11,29 @@
 
 const cookieParser = require('cookie-parser');
 const User = require('../models/userModel');
-// const mongoose = require('mongoose');
 
 const userController = {};
 
 /**
  * @name userController.login
  * @description Takes input user info and tries to match it up to MongoDB
- * If successful, logs in, if not, ??
+ * If successful, set id and success true
+ * If not successful, set success false
  */
 userController.login = async (req, res, next) => {
-    try {
-        const { username, password } = req.body;
-        const data = await User.find({username: username});
-        if (data[0].password === password){
-            res.locals.id = data[0].id;
-            res.locals.success = true;
-            return next()
-        }
-        else {
-            res.locals.success = false;
-            return next();
-        }
-    } catch (err) {
+  try {
+    const { username, password } = req.body;
+    const data = await User.find({username: username});
+    if (data[0].password === password){
+      res.locals.id = data[0].id;
+      res.locals.success = true;
+      return next()
+    }
+    else {
+      res.locals.success = false;
+      return next();
+    }
+  } catch (err) {
     return next({
       log: `userController.login ERROR : ${err}`,
       message: {
@@ -50,7 +50,7 @@ userController.login = async (req, res, next) => {
 userController.createUser = async (req, res, next) => {
   try {
     const { username, password } = req.body;
-    const data = await User.create({ username, password });
+    const data = await User.create({ username : username, password : password });
     res.locals.data = data;
     return next();
   } catch (err) {
@@ -67,7 +67,6 @@ userController.createUser = async (req, res, next) => {
  * @name userController.setSSIDCookie
  * @description Creates a cookie with the users ID
  */
-
 userController.setSSIDCookie = async (req, res, next) => {
   try {
     res.cookie('id', res.locals.id, { httpOnly: true });
@@ -82,6 +81,10 @@ userController.setSSIDCookie = async (req, res, next) => {
   }
 }
 
+/**
+ * @name userController.getSSIDCookie 
+ * @description Retrieves the user's SSID cookie and saves it to res.locals.id
+ */
 userController.getSSIDCookie = async (req, res, next) => {
   try {
     const SSID = req.cookies.id;
@@ -99,18 +102,17 @@ userController.getSSIDCookie = async (req, res, next) => {
 
 /**
  * @name userController.deleteUser
- * @description
+ * @description retrieves the user id and removes it from MongoDB
+ * TODO: 
  */
 userController.deleteUser = async (req, res, next) => {
 
 }
 
-
 /**
  * @name userController.updateUser
- * @description not sure what we want to do if we want to update info...
- * Give a form to the user with information filled out with current info
- * and have the user replace the information
+ * @description retrieves user information and updates MongoDB
+ * TODO:
  */
 userController.updateUser = async (req, res, next) => {
 

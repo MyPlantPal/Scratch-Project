@@ -17,7 +17,7 @@ const plantController = {};
 
 /**
  * @name plantController.getPlants 
- * @description Grabs plant information from the database
+ * @description Grabs plant information from the database 
  */
 plantController.getPlants = async (req, res, next) => {
   try {
@@ -36,15 +36,16 @@ plantController.getPlants = async (req, res, next) => {
 
 /**
  * @name plantController.createPlant
- * @description
+ * @description Creates plant using information and adds to MongoDB
  */
 plantController.createPlant = async (req, res, next) => {
   try {
-    // const { name, type, lastWatered, frequency, soil, lastPotted, sunlight, dateAdded, birthday } = req.body; 
-    const { body } = req
+    const { body } = req; 
+
     body.user = res.locals.id;
     const data = await Plant.create(body);
     res.locals.data = data;
+
     const plantId = data.id;
     const user = await User.findById(data.user);
     user.plants.push(plantId);
@@ -63,13 +64,13 @@ plantController.createPlant = async (req, res, next) => {
 
 /**
  * @name plantController.deletePlant
- * @description
+ * @description Grabs the plant based on the name and deletes it from the Mongo DB database
+ * TODO: works on postman, currently not connected to front end,
  */
 plantController.deletePlant = async (req, res, next) => {
   try {
     const { name } = req.body;
     const plant = await Plant.findOneAndDelete({name: name});
-    // res.locals.id = plant.id; 
     return next();
   } catch (err) {
     return next({
@@ -83,9 +84,8 @@ plantController.deletePlant = async (req, res, next) => {
 
 /**
  * @name plantController.updatePlant
- * @description not sure what we want to do if we want to update info...
- * Give a form to the user with information filled out with current info
- * and have the user replace the information
+ * @description gets plant information and modifies it in MongoDB
+ * TODO:
  */
 plantController.updatePlant = async (req, res, next) => {
   try {

@@ -4,7 +4,7 @@
  * @module plantReducer
  * @authors Preston Coldwell, John Le, Christopher Le, Geoffrey Sun, Brandon Chmiel
  * @date 08/18/2023
- * @description Create the relevant reducers to change, edit, and affect different plant cards
+ * @description Create the relevant reducers to change, edit, and affect different plant cards. Defunct, can be used if refactoring to redux 
  *
  * ************************************
  */

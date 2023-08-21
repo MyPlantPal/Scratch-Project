@@ -14,40 +14,36 @@ const plantRouter = express.Router();
 const plantController = require('../Controllers/plantController')
 const userController = require('../Controllers/userController');
 
-
-// /**
-//  * @name PlantRouter-GetPlant
-//  * @description Gets the Plant information from data base
-//  */
-// plantRouter.get('/', plantController.getPlants, (req,res) => {
-//   return res.status(200).send(res.locals.data)
-// });
-
+/**
+ * @name PlantRouter-GetPlant
+ * @description Gets the Plant information from data base based on user (cookies)
+ */
 plantRouter.get('/getplants', userController.getSSIDCookie, plantController.getPlants, (req, res) => {
-  res.status(200).send(res.locals.data);
+  return res.status(200).send(res.locals.data);
 })
 
 /**
  * @name PlantRouter-CreatePlant
- * @description Grabs plant information from UI and creates a plant and uploads to MongoDB
+ * @description Grabs plant information from UI based on user and creates a plant and uploads to MongoDB
  */
 plantRouter.post('/createplant', userController.getSSIDCookie, plantController.createPlant, (req, res) => {
-  return res.status(200).send('Plant added')
+  return res.status(200).send('Plant added');
 })
 
-// /**
-//  * @name PlantRouter-UpdatePlant
-//  * @description Gets the plant information and lets the user modify certain parts of the plant information
-//  * Send that information back as a patch 
-//  */
+/**
+ * @name PlantRouter-UpdatePlant
+ * @description Gets the plant information and lets the user modify certain parts of the plant information
+ * Send that information back as a patch 
+ * TODO:
+ */
 plantRouter.patch('', plantController.updatePlant, (req, res) => {
-
+  return res.status(400)
 })
 
-// /**
-//  * @name PlantRouter-deletePlant
-//  * @description User identifies what plant to find and deletes its from the datahbase
-//  */
+/**
+ * @name PlantRouter-deletePlant
+ * @description User identifies what plant to find and deletes its from the datahbase
+ */
 plantRouter.delete('/deleteplant', userController.getSSIDCookie, plantController.deletePlant,  plantController.getPlants, (req, res) => {
   return res.status(200).send(res.locals.data);
 })
