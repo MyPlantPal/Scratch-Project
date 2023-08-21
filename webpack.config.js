@@ -46,6 +46,7 @@ module.exports = {
       template: path.resolve(__dirname, './index.html'),
     }),
   ],
+  
   devServer: {
     static : {
       publicPath: '/build',
