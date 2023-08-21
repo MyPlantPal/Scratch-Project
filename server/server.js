@@ -17,6 +17,7 @@ const mongoose = require('mongoose');
 const userRouter = require('./Routers/userRouter');
 const plantRouter = require('./Routers/plantRouter');
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser')
 
 dotenv.config();
 
@@ -53,6 +54,7 @@ mongoose
  */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 /**
  * @name

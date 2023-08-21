@@ -10,10 +10,16 @@
  */
 
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import * as actions from '../actions/actions';
+import * as types from '../constants/actionTypes';
 import PlantDisplay from '../components/PlantDisplay.jsx';
 import TotalPlantData from '../components/TotalPlantData.jsx';
 
+
+//Plant container, called fromt he main page to display the relevant components
 const PlantContainer = () => {
+
   return (
     <div className="plantContainer">
       <h2>Welcome!</h2>

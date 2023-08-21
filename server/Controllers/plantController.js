@@ -13,18 +13,11 @@ const Plant = require('../models/plantModel');
 const User = require('../models/userModel');
 const { request } = require('../server');
 
-
 const plantController = {};
 
-
-// console.log(data[0])
-// res.locals.id = data[0].id;
-// res.locals.plants = data[0].plants;
-// console.log('res plants', res.locals.plants)
-
 /**
- * @name plantController.getPlant 
- * @description Grabs plant information from the database
+ * @name plantController.getPlants 
+ * @description Grabs plant information from the database 
  */
 plantController.getPlants = async (req, res, next) => {
   try {
@@ -33,9 +26,9 @@ plantController.getPlants = async (req, res, next) => {
     return next();
   } catch (err) {
     return next ({
-      log: `userController.getPlants ERROR : ${err}`,
+      log: `plantController.getPlants ERROR : ${err}`,
       message : {
-        err : 'userController.getPlants ERROR wrong input'
+        err : 'plantController.getPlants ERROR wrong input'
       }    
     })
   }
@@ -43,16 +36,16 @@ plantController.getPlants = async (req, res, next) => {
 
 /**
  * @name plantController.createPlant
- * @description
+ * @description Creates plant using information and adds to MongoDB
  */
 plantController.createPlant = async (req, res, next) => {
-
   try {
-    // const { name, type, lastWatered, frequency, soil, lastPotted, sunlight, dateAdded, birthday } = req.body; 
-    const { body } = req
+    const { body } = req; 
+
+    body.user = res.locals.id;
     const data = await Plant.create(body);
-    console.log(data);
     res.locals.data = data;
+
     const plantId = data.id;
     const user = await User.findById(data.user);
     user.plants.push(plantId);
@@ -61,32 +54,51 @@ plantController.createPlant = async (req, res, next) => {
   }
   catch(err) {
     return next({
-      log: `userController.createPlant ERROR : ${err}`,
+      log: `plantController.createPlant ERROR : ${err}`,
       message : {
-        err : 'userController.createPlant ERROR wrong input'
+        err : 'plantController.createPlant ERROR wrong input'
       }    
     })
   }
 }
 
-
 /**
  * @name plantController.deletePlant
- * @description
+ * @description Grabs the plant based on the name and deletes it from the Mongo DB database
+ * TODO: works on postman, currently not connected to front end,
  */
-plantController.deletePlant = (req, res, next) => {
-
+plantController.deletePlant = async (req, res, next) => {
+  try {
+    const { name } = req.body;
+    const plant = await Plant.findOneAndDelete({name: name});
+    return next();
+  } catch (err) {
+    return next({
+      log: `plantController.deletePlant ERROR : ${err}`,
+      message : {
+        err : 'plantController.deletePlant ERROR'
+      }    
+    })
+  }
 }
-
 
 /**
  * @name plantController.updatePlant
- * @description not sure what we want to do if we want to update info...
- * Give a form to the user with information filled out with current info
- * and have the user replace the information
+ * @description gets plant information and modifies it in MongoDB
+ * TODO:
  */
-plantController.updatePlant = (req, res, next) => {
-
+plantController.updatePlant = async (req, res, next) => {
+  try {
+    
+    return next(); 
+  } catch (err) {
+    return next({
+      log: `plantController.updatePlant ERROR : ${err}`,
+      message : {
+        err : 'plantController.updatePlant ERROR'
+      }    
+    })
+  }
 }
 
 module.exports = plantController;
