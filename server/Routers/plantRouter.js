@@ -12,6 +12,8 @@
 const express = require('express');
 const plantRouter = express.Router();
 const plantController = require('../Controllers/plantController')
+const userController = require('../Controllers/userController');
+
 
 // /**
 //  * @name PlantRouter-GetPlant
@@ -25,7 +27,7 @@ const plantController = require('../Controllers/plantController')
  * @name PlantRouter-CreatePlant
  * @description Grabs plant information from UI and creates a plant and uploads to MongoDB
  */
-plantRouter.post('/createplant', plantController.createPlant, (req, res) => {
+plantRouter.post('/createplant', userController.getSSIDCookie, plantController.createPlant, (req, res) => {
   return res.status(200).send('Plant added')
 })
 

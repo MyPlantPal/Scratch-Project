@@ -9,6 +9,7 @@
  * ************************************
  */
 
+const cookieParser = require('cookie-parser');
 const User = require('../models/userModel');
 // const mongoose = require('mongoose');
 
@@ -81,5 +82,21 @@ userController.setSSIDCookie = async (req, res, next) => {
   }
 }
 
+userController.getSSIDCookie = async (req, res, next) => {
+  console.log('entered getSSIDCookie');
+  try {
+    console.log("REQ COOKIES", req.cookies)
+    const SSID = req.cookies.ssid;
+    console.log('SSID', SSID)
+    res.locals.SSID = SSID;
+  } catch (err) {
+    return next({
+      log: `userController.getSSID ERROR : ${err}`,
+      message : {
+        err : 'userController.getSSID ERROR'
+      }  
+    })
+  }
+}
 
 module.exports = userController;

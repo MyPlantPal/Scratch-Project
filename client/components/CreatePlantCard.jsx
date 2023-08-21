@@ -38,6 +38,7 @@ const CreatePlantCard = props => {
   };
 
   
+  
   const handleSubmission = (e) => {
     e.preventDefault(); 
     // fire a post request to the backend
@@ -46,12 +47,14 @@ const CreatePlantCard = props => {
       name: name, 
       type: species,
       soil: soilType, 
-      frequency: waterFrequency};
+      frequency: waterFrequency, 
+    };
     console.log(data);
     fetch('http://localhost:8080/leaf/plant/createplant', {
-      method: POST,
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
+
     })
     .then(() => {
       console.log('new changes!');

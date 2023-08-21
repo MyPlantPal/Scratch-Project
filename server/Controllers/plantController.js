@@ -14,6 +14,7 @@ const User = require('../models/userModel');
 const { request } = require('../server');
 
 
+
 const plantController = {};
 
 
@@ -46,10 +47,11 @@ plantController.getPlants = async (req, res, next) => {
  * @description
  */
 plantController.createPlant = async (req, res, next) => {
-
+  console.log('entered createPlant middleware');
   try {
     // const { name, type, lastWatered, frequency, soil, lastPotted, sunlight, dateAdded, birthday } = req.body; 
     const { body } = req
+    body.id = res.locals.SSID;
     const data = await Plant.create(body);
     console.log(data);
     res.locals.data = data;
