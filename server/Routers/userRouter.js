@@ -49,10 +49,9 @@ userRouter.post('/createUser', userController.createUser, (req, res) => {
 //  * @name userRouter.delete
 //  * @description sends a delete request to delete a user... removes the user from database
 //  */
-// // .deleteUser -> find person -> remove from database -> return success or fail
-// userRouter.delete('/deleteUser', userController.deleteUser, (req, res) => {
-
-// });
+userRouter.delete('/deleteUser', userController.deleteUser, (req, res) => {
+  res.status(200);
+});
 
 
 module.exports = userRouter; 

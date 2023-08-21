@@ -27,11 +27,11 @@ userController.login = async (req, res, next) => {
         if (data[0].password === password){
             res.locals.id = data[0].id;
             res.locals.success = true;
-            next()
+            return next()
         }
         else {
             res.locals.success = false;
-            next();
+            return next();
         }
     } catch (err) {
     return next({
@@ -52,7 +52,7 @@ userController.createUser = async (req, res, next) => {
     const { username, password } = req.body;
     const data = await User.create({ username, password });
     res.locals.data = data;
-    next();
+    return next();
   } catch (err) {
     return next({
       log: `userController.createUser ERROR : ${err}`,
@@ -70,8 +70,8 @@ userController.createUser = async (req, res, next) => {
 
 userController.setSSIDCookie = async (req, res, next) => {
   try {
-    res.cookie('ssid', res.locals.id, { httpOnly: true });
-    next();
+    res.cookie('id', res.locals.id, { httpOnly: true });
+    return next();
   } catch (err) {
     return next({
       log: `userController.setSSIDCookie ERROR : ${err}`,
@@ -83,12 +83,10 @@ userController.setSSIDCookie = async (req, res, next) => {
 }
 
 userController.getSSIDCookie = async (req, res, next) => {
-  console.log('entered getSSIDCookie');
   try {
-    console.log("REQ COOKIES", req.cookies)
-    const SSID = req.cookies.ssid;
-    console.log('SSID', SSID)
-    res.locals.SSID = SSID;
+    const SSID = req.cookies.id;
+    res.locals.id = SSID;
+    return next();
   } catch (err) {
     return next({
       log: `userController.getSSID ERROR : ${err}`,
@@ -97,6 +95,25 @@ userController.getSSIDCookie = async (req, res, next) => {
       }  
     })
   }
+}
+
+/**
+ * @name userController.deleteUser
+ * @description
+ */
+userController.deleteUser = async (req, res, next) => {
+
+}
+
+
+/**
+ * @name userController.updateUser
+ * @description not sure what we want to do if we want to update info...
+ * Give a form to the user with information filled out with current info
+ * and have the user replace the information
+ */
+userController.updateUser = async (req, res, next) => {
+
 }
 
 module.exports = userController;

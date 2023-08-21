@@ -36,17 +36,17 @@ plantRouter.post('/createplant', userController.getSSIDCookie, plantController.c
 //  * @description Gets the plant information and lets the user modify certain parts of the plant information
 //  * Send that information back as a patch 
 //  */
-// plantRouter.patch('', plantController.updatePlant, (req, res) => {
+plantRouter.patch('', plantController.updatePlant, (req, res) => {
 
-// })
+})
 
 // /**
 //  * @name PlantRouter-deletePlant
 //  * @description User identifies what plant to find and deletes its from the datahbase
 //  */
-// plantRouter.delete('', plantController.deletePlant, (req, res) => {
-
-// })
+plantRouter.delete('/deleteplant', userController.getSSIDCookie, plantController.deletePlant,  plantController.getPlants, (req, res) => {
+  return res.status(200).send(res.locals.data);
+})
 
 module.exports = plantRouter; 
 
